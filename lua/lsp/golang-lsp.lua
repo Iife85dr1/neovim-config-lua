@@ -1,5 +1,8 @@
+local cap = require("lsp-configs")
+
 lspconfig = require "lspconfig"
   lspconfig.gopls.setup {
+    capabilities = cap.get_cap(),
     cmd = {"gopls","serve"},
 	settings = {
 		gopls = {

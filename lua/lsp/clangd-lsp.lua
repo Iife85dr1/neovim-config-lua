@@ -1,8 +1,12 @@
+local cap = require("lsp-configs")
+
 require'lspconfig'.clangd.setup{
+    capabilities = cap.get_cap(),
 	cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=never","--compile-commands-dir=Debug/","--fallback-style=microsoft" }
 }
 
 require'lspconfig'.cmake.setup {
+    capabilities = cap.get_cap(),
     cmd = { "cmake-language-server" },
     filetypes = { "cmake", "CMakeLists.txt" },
 }

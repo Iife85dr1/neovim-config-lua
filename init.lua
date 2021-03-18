@@ -29,4 +29,4 @@ require('treesitter')
 
 
 -- other
-require('autopair')
+-- require('autopair')

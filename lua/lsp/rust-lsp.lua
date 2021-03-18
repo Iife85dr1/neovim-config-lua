@@ -1,4 +1,7 @@
+local cap = require("lsp-configs")
+
 require'lspconfig'.rust_analyzer.setup {
+    capabilities = cap.get_cap(),
 }
 
 

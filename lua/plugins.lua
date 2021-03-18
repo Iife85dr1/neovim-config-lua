@@ -57,7 +57,7 @@ return require('packer').startup(function()
 }
 	
 	-- brackets
-	use 'windwp/nvim-autopairs'
+	-- use 'windwp/nvim-autopairs'
 
     use 'yuttie/comfortable-motion.vim'
     -- use 'liuchengxu/vim-which-key'
