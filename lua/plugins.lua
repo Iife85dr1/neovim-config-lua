@@ -40,7 +40,7 @@ return require('packer').startup(function()
     -- Other
     use 'jiangmiao/auto-pairs'
     use 'ghifarit53/tokyonight-vim'
-    use 'jackguo380/vim-lsp-cxx-highlight'
+    -- use 'jackguo380/vim-lsp-cxx-highlight'
 
     -- Status line
 	--use {
@@ -54,7 +54,8 @@ return require('packer').startup(function()
 		config = function() require'galaxyline/my' end,
     -- some optional icons
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
-}
+    }
+    use 'nvim-lua/lsp-status.nvim'
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'

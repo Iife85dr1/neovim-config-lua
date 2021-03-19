@@ -52,6 +52,7 @@ gls.left[5] = {
   }
 }
 
+--[[ 
 gls.left[6] = {
   LineInfo = {
     provider = 'LineColumn',
@@ -69,6 +70,7 @@ gls.left[7] = {
     highlight = {colors.fg,colors.bg,'bold'},
   }
 }
+
 
 gls.left[8] = {
   DiagnosticError = {
@@ -93,6 +95,7 @@ gls.left[10] = {
   }
 }
 
+
 gls.left[11] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
@@ -114,6 +117,20 @@ gls.left[12] = {
     icon = ' LSP:',
     highlight = {colors.cyan,colors.bg,'bold'}
   }
+}
+]]--
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+gls.left[6]= {
+    LspStatusA = {
+    provider = lsp_status.status,
+
+    condition = condition.hide_in_width,
+    --separator = ' ',
+    -- separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.blue,colors.bg,'bold'}
+    }
 }
 
 gls.right[1] = {
