@@ -1,3 +1,5 @@
-vim.cmd('let g:tokyonight_style = \'storm\'')
-vim.cmd('colorscheme tokyonight')
+vim.cmd("set termguicolors")
+vim.cmd("let g:tokyonight_style = 'night'")
+vim.cmd("let g:tokyonight_enable_italic = 1")
+vim.cmd("colorscheme tokyonight")
 -- vim.cmd('let g:airline_theme = "tokyonight"')

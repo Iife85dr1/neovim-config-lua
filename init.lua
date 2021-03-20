@@ -19,14 +19,13 @@ require('nv-compe')
 require('fzf')
 
 -- status bar
--- require('galaxyline')
+require('galaxyline')
 -- require('airline')
--- require('lsp-status')
-
-
--- Treesitter
-require('treesitter')
-
+require('lsp-status')
 
 -- other
+require('vimspector')
+
+-- lang-specific
+require('langs.rust')
 -- require('autopair')

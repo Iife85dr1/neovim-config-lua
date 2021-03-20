@@ -38,9 +38,10 @@ return require('packer').startup(function()
 	use 'p00f/nvim-ts-rainbow'
 
     -- Other
-    use 'jiangmiao/auto-pairs'
     use 'ghifarit53/tokyonight-vim'
-    -- use 'jackguo380/vim-lsp-cxx-highlight'
+    use 'airblade/vim-rooter'
+    use 'puuuuh/rust.vim'
+    use 'puremourning/vimspector'
 
     -- Status line
 	--use {
@@ -59,8 +60,6 @@ return require('packer').startup(function()
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
-
-    use 'yuttie/comfortable-motion.vim'
     -- use 'liuchengxu/vim-which-key'
     -- use 'puremourning/vimspector'
 
