@@ -15,6 +15,7 @@ vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
 return require('packer').startup(function()
+    use {'wbthomason/packer.nvim', opt = true}
     -- LSP
     use 'neovim/nvim-lspconfig'
     -- LSP UI
@@ -32,16 +33,12 @@ return require('packer').startup(function()
 	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
 	use {'junegunn/fzf.vim'}
 
-	-- Treesitter
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use 'nvim-treesitter/playground'
-	use 'p00f/nvim-ts-rainbow'
-
     -- Other
     use 'ghifarit53/tokyonight-vim'
     use 'airblade/vim-rooter'
     use 'puuuuh/rust.vim'
     use 'puremourning/vimspector'
+    use 'luochen1990/rainbow'
 
     -- Status line
 	--use {

@@ -25,7 +25,9 @@ require('lsp-status')
 
 -- other
 require('vimspector')
+require('rainbow')
 
 -- lang-specific
 require('langs.rust')
+
 -- require('autopair')
