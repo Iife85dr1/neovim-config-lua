@@ -15,6 +15,7 @@ vim.o.ai=true
 vim.o.cin=true
 vim.o.encoding='utf-8'
 vim.o.fileencoding='utf-8'
+vim.o.hidden=true
 
 -- tmux
 vim.o.t_Co='256'
