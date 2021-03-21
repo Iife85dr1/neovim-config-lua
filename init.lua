@@ -19,11 +19,11 @@ require('nv-lspsaga')
 require('nv-compe')
 require('fzf')
 
+-- require('airline')
+require('lsp_status')
+
 -- status bar
 require('galaxyline')
--- require('airline')
-require('lsp-status')
-
 -- other
 require('vimspector')
 require('rainbow')
