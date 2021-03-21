@@ -39,6 +39,7 @@ return require('packer').startup(function()
     use 'puuuuh/rust.vim'
     use 'puremourning/vimspector'
     use 'luochen1990/rainbow'
+    use 'tjdevries/colorbuddy.vim'
 
     -- Status line
 	--use {

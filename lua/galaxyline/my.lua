@@ -120,7 +120,6 @@ gls.left[12] = {
 }
 ]]--
 local lsp_status = require('lsp-status')
-lsp_status.register_progress()
 
 gls.left[6]= {
     LspStatusA = {

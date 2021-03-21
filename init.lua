@@ -1,3 +1,4 @@
+--
 -- general settings
 require('plugins')
 require('theme')
@@ -29,5 +30,3 @@ require('rainbow')
 
 -- lang-specific
 require('langs.rust')
-
--- require('autopair')
