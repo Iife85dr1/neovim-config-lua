@@ -33,20 +33,16 @@ return require('packer').startup(function()
 	use {'junegunn/fzf.vim'}
 
 	-- Treesitter
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use 'nvim-treesitter/playground'
-	use 'p00f/nvim-ts-rainbow'
+	-- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	-- use 'nvim-treesitter/playground'
+	-- use 'p00f/nvim-ts-rainbow'
 
     -- Other
-    use 'jiangmiao/auto-pairs'
     use 'ghifarit53/tokyonight-vim'
+    use 'airblade/vim-rooter'
     -- use 'jackguo380/vim-lsp-cxx-highlight'
 
-    -- Status line
-	--use {
-	--	'hoob3rt/lualine.nvim',
-	--	requires = {'kyazdani42/nvim-web-devicons', opt = true},
-	---}
+
 	use {
 	   'glepnir/galaxyline.nvim',
 		branch = 'main',
@@ -59,6 +55,7 @@ return require('packer').startup(function()
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
+	use 'cohama/lexima.vim'
 
     use 'yuttie/comfortable-motion.vim'
     -- use 'liuchengxu/vim-which-key'

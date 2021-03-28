@@ -16,7 +16,8 @@ require('lsp.golang-lsp')
 require('nv-lspkind')
 require('nv-lspsaga')
 require('nv-compe')
-require('fzf')
+
+-- require('fzf')
 
 -- status bar
 -- require('galaxyline')
@@ -25,7 +26,7 @@ require('fzf')
 
 
 -- Treesitter
-require('treesitter')
+-- require('treesitter')
 
 
 -- other

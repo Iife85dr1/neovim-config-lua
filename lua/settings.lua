@@ -31,3 +31,11 @@ vim.o.updatetime=500
 
 vim.cmd('noremap <silent> <S-t> :Explore <CR>')
 vim.cmd('set signcolumn=yes')
+
+
+
+vim.cmd('nmap <TAB> :b# <CR>')
+vim.cmd('xmap <TAB> :b# <CR>')
+
+vim.cmd('noremap . :bnext <CR>')
+vim.cmd('noremap , :bprevious <CR>')

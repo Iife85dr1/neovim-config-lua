@@ -22,8 +22,8 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     spell = true;
-    tags = true;
-    snippets_nvim = true;
+    tags = false;
+    snippets_nvim = false;
     treesitter = true;
   };
 }
@@ -70,9 +70,18 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
+-- vim.cmd("inoremap <silent><expr> <C-Space> compe#complete()")
+-- vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')")
+-- vim.cmd("inoremap <silent><expr> <C-e>     compe#close('<C-e>')")
+-- vim.cmd("inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })")
+-- vim.cmd("inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })")
 
-vim.cmd("inoremap <silent><expr> <C-Space> compe#complete()")
-vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')")
-vim.cmd("inoremap <silent><expr> <C-e>     compe#close('<C-e>')")
-vim.cmd("inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })")
-vim.cmd("inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })")
+vim.api.nvim_exec([[
+let g:lexima_no_default_rules = v:true
+call lexima#set_default_rules()
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm(lexima#expand('<LT>CR>', 'i'))
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+]], true)
