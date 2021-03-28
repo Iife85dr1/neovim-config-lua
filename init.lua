@@ -11,6 +11,7 @@ require('lsp.python-lsp')
 require('lsp.rust-lsp')
 require('lsp.clangd-lsp')
 require('lsp.golang-lsp')
+require('lsp.react')
 
 
 -- plugs

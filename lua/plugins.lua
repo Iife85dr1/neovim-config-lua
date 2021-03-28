@@ -23,6 +23,8 @@ return require('packer').startup(function()
     -- LSP COMPLECTION ICONS
     use 'onsails/lspkind-nvim'
 
+    use 'nvim-lua/lsp_extensions.nvim'
+
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
@@ -40,6 +42,12 @@ return require('packer').startup(function()
     use 'puremourning/vimspector'
     use 'luochen1990/rainbow'
     use 'tjdevries/colorbuddy.vim'
+
+    -- TS react
+    use 'pangloss/vim-javascript'
+    use 'leafgarland/typescript-vim'
+    use 'peitalin/vim-jsx-typescript'
+    use 'jparise/vim-graphql'
 
     -- Status line
 	--use {

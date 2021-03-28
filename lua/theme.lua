@@ -2,12 +2,13 @@ vim.api.nvim_exec([[
 function! MyHighlights() abort
     highlight LspDiagnosticsDefaultError guifg=#990000
     highlight LspDiagnosticsDefaultWarning guifg=#8c6c00
+    highlight Comment guifg=#5f6d86
 endfunction
 
 augroup MyColors
     autocmd!
     autocmd ColorScheme * call MyHighlights()
-augroup END
+    augroup END
 ]], false)
 
 vim.cmd("set termguicolors")
