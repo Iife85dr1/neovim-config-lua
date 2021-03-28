@@ -3,7 +3,7 @@ local gl = require('galaxyline')
 local colors = require('galaxyline.theme').default
 local condition = require('galaxyline.condition')
 local gls = gl.section
-gl.short_line_list = {'NvimTree','vista','dbui','packer'}
+gl.short_line_list = {'packer'}
 
 gls.left[1] = {
   RainbowRed = {
@@ -51,8 +51,21 @@ gls.left[5] = {
     highlight = {colors.magenta,colors.bg,'bold'}
   }
 }
+--[[
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
 
---[[ 
+gls.left[6]= {
+    LspStatusA = {
+    provider = lsp_status.status,
+
+    condition = condition.hide_in_width,
+    --separator = ' ',
+    -- separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.blue,colors.bg,'bold'}
+    }
+}
+]]--
 gls.left[6] = {
   LineInfo = {
     provider = 'LineColumn',
@@ -61,7 +74,6 @@ gls.left[6] = {
     highlight = {colors.fg,colors.bg},
   },
 }
-
 gls.left[7] = {
   PerCent = {
     provider = 'LinePercent',
@@ -70,8 +82,6 @@ gls.left[7] = {
     highlight = {colors.fg,colors.bg,'bold'},
   }
 }
-
-
 gls.left[8] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
@@ -86,7 +96,6 @@ gls.left[9] = {
     highlight = {colors.yellow,colors.bg},
   }
 }
-
 gls.left[10] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
@@ -94,8 +103,6 @@ gls.left[10] = {
     highlight = {colors.cyan,colors.bg},
   }
 }
-
-
 gls.left[11] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
@@ -103,7 +110,6 @@ gls.left[11] = {
     highlight = {colors.blue,colors.bg},
   }
 }
-
 gls.left[12] = {
   ShowLspClient = {
     provider = 'GetLspClient',
@@ -118,20 +124,7 @@ gls.left[12] = {
     highlight = {colors.cyan,colors.bg,'bold'}
   }
 }
-]]--
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
 
-gls.left[6]= {
-    LspStatusA = {
-    provider = lsp_status.status,
-
-    condition = condition.hide_in_width,
-    --separator = ' ',
-    -- separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.blue,colors.bg,'bold'}
-    }
-}
 
 gls.right[1] = {
   FileEncode = {

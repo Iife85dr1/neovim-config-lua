@@ -40,6 +40,9 @@ return require('packer').startup(function()
 	-- Tabline
 	use 'romgrk/barbar.nvim'
 
+    -- Session manager
+    use 'rmagatti/auto-session'
+
 	use {
 	   'glepnir/galaxyline.nvim',
 		branch = 'main',

@@ -43,3 +43,14 @@ vim.cmd('xmap <TAB> :b# <CR>')
 
 vim.cmd('noremap . :bnext <CR>')
 vim.cmd('noremap , :bprevious <CR>')
+
+
+-- Restart lsp
+vim.api.nvim_exec([[
+function! RestartLSP()
+    :execute 'lua vim.lsp.stop_client(vim.lsp.get_active_clients())'
+    :execute 'sleep 1'
+    :execute 'edit'
+endfunction
+command! -nargs=* R call RestartLSP()
+]], true)
