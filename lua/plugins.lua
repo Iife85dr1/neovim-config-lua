@@ -15,6 +15,9 @@ vim.cmd [[packadd packer.nvim]]
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
 return require('packer').startup(function()
+	-- packet
+	use {'wbthomason/packer.nvim', opt = true}
+
     -- LSP
     use 'neovim/nvim-lspconfig'
     -- LSP UI
