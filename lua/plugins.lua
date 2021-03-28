@@ -28,18 +28,10 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip-integ'
     use 'honza/vim-snippets'
 
-	--fzf
-	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-	use {'junegunn/fzf.vim'}
-
-	-- Treesitter
-	-- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	-- use 'nvim-treesitter/playground'
-	-- use 'p00f/nvim-ts-rainbow'
-
     -- Other
     use 'ghifarit53/tokyonight-vim'
     use 'airblade/vim-rooter'
+	use 'luochen1990/rainbow'
     -- use 'jackguo380/vim-lsp-cxx-highlight'
 
 

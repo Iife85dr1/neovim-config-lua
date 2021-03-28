@@ -27,12 +27,16 @@ vim.o.tabstop=4
 vim.o.termguicolors=true
 vim.o.mouse="a"
 vim.o.updatetime=500
+vim.g.rainbow_active=1
+
+-- netrw
+vim.g.netrw_banner=0
+vim.g.netrw_liststyle=3
+vim.g.netrw_fastbrowse=0
 
 
 vim.cmd('noremap <silent> <S-t> :Explore <CR>')
 vim.cmd('set signcolumn=yes')
-
-
 
 vim.cmd('nmap <TAB> :b# <CR>')
 vim.cmd('xmap <TAB> :b# <CR>')
