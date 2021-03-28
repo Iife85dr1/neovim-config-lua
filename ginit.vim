@@ -1,1 +1,2 @@
-Guifont Jetbrains Mono Medium:h25
+Guifont Jetbrains Mono Medium:h22
+GuiPopupmenu 0
