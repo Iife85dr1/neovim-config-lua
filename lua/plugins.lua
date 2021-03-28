@@ -37,6 +37,8 @@ return require('packer').startup(function()
 	use 'luochen1990/rainbow'
     -- use 'jackguo380/vim-lsp-cxx-highlight'
 
+	-- Tabline
+	use 'romgrk/barbar.nvim'
 
 	use {
 	   'glepnir/galaxyline.nvim',

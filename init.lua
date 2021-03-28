@@ -17,6 +17,8 @@ require('nv-lspkind')
 require('nv-lspsaga')
 require('nv-compe')
 
+require('barbar')
+
 -- require('fzf')
 
 -- status bar
