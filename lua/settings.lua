@@ -16,6 +16,8 @@ vim.o.cin=true
 vim.o.encoding='utf-8'
 vim.o.fileencoding='utf-8'
 vim.o.hidden=true
+-- long line coloring
+vim.o.synmaxcol=0
 
 -- tmux
 vim.o.t_Co='256'
