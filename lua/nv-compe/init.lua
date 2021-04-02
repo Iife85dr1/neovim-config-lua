@@ -4,14 +4,13 @@ require'compe'.setup {
   enabled = true;
   autocomplete = true;
   debug = false;
-  min_length = 1;
   preselect = 'enable';
   throttle_time = 80;
   source_timeout = 200;
   incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
+  max_abbr_width = 50;
+  max_kind_width = 5;
+  max_menu_width = 50;
   documentation = true;
 
   source = {
@@ -19,14 +18,12 @@ require'compe'.setup {
     buffer = true;
     calc = true;
     vsnip = true;
-    nvim_lsp = true;
     nvim_lua = true;
     spell = true;
-    tags = true;
-    snippets_nvim = true;
-    treesitter = true;
+    my_lsp = true;
   };
 }
+
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -76,3 +73,32 @@ vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')")
 vim.cmd("inoremap <silent><expr> <C-e>     compe#close('<C-e>')")
 vim.cmd("inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })")
 vim.cmd("inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })")
+
+
+-- Forked compe source initialization
+local source_ids = {}
+
+local compe = require'compe'
+local Source = require'nv-compe.source'
+
+vim.api.nvim_exec([[
+augroup compe_nvim_lsp
+autocmd InsertEnter * lua require"nv-compe".register()
+augroup END
+]], false)
+
+return {
+    register = function()
+        -- unregister
+        for _, source_id in ipairs(source_ids) do
+            compe.unregister_source(source_id)
+        end
+        source_ids = {}
+
+        -- register
+        local filetype = vim.bo.filetype
+        for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+            table.insert(source_ids, compe.register_source('my_lsp', Source.new(client, filetype)))
+        end
+    end;
+}

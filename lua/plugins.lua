@@ -49,6 +49,9 @@ return require('packer').startup(function()
     use 'peitalin/vim-jsx-typescript'
     use 'jparise/vim-graphql'
 
+    -- highlight
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} 
+
     -- Status line
 	--use {
 	--	'hoob3rt/lualine.nvim',
@@ -63,6 +66,8 @@ return require('packer').startup(function()
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'nvim-lua/lsp-status.nvim'
+    use 'Shougo/echodoc.vim'
+    use 'puuuuh/vimspector-rust'
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
@@ -70,4 +75,3 @@ return require('packer').startup(function()
     -- use 'puremourning/vimspector'
 
 end)
-

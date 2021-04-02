@@ -12,6 +12,7 @@ require('lsp.rust-lsp')
 require('lsp.clangd-lsp')
 require('lsp.golang-lsp')
 require('lsp.react')
+require('lsp.lua-lsp')
 
 
 -- plugs
@@ -31,3 +32,9 @@ require('rainbow')
 
 -- lang-specific
 require('langs.rust')
+
+require('nvim-treesitter.configs').setup {
+  indent = {
+    enable = true
+  }
+}
