@@ -43,8 +43,8 @@ vim.cmd('set signcolumn=yes')
 vim.cmd('nmap <TAB> :b# <CR>')
 vim.cmd('xmap <TAB> :b# <CR>')
 
-vim.cmd('noremap . :bnext <CR>')
-vim.cmd('noremap , :bprevious <CR>')
+vim.cmd('noremap . :BufferNext <CR>')
+vim.cmd('noremap , :BufferPrevious <CR>')
 
 
 -- Restart lsp
