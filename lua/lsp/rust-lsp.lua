@@ -30,10 +30,11 @@ require'lspconfig'.rust_analyzer.setup {
 function rust_reload_workspace()
     local directory = api.nvim_eval("expand('%:p:h')")
     local lsp_list = vim.lsp.get_active_clients()
-    for i=1, table.getn(lsp_list) do
-        for iFolder=1, table.getn(lsp_list[i].workspaceFolders) do
-            if lsp_list[i].name == "rust_analyzer" and lsp_list[i].workspaceFolders[iFolder].name == directory then
-                lsp_list[i].request('rust-analyzer/reloadWorkspace', nil,
+
+    for i, lsp in pairs(lsp_list) do
+        for ii, folder in pairs(lsp.workspaceFolders) do
+            if lsp_list[i].name == "rust_analyzer" and folder.name == directory then
+                lsp.request('rust-analyzer/reloadWorkspace', nil,
                 function(err, _, result, _)
                     if err then error(tostring(err)) end
                     vim.notify("[Workspace reloaded]: " .. directory)
