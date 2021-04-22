@@ -51,21 +51,6 @@ gls.left[5] = {
     highlight = {colors.magenta,colors.bg,'bold'}
   }
 }
---[[
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
-
-gls.left[6]= {
-    LspStatusA = {
-    provider = lsp_status.status,
-
-    condition = condition.hide_in_width,
-    --separator = ' ',
-    -- separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.blue,colors.bg,'bold'}
-    }
-}
-]]--
 gls.left[6] = {
   LineInfo = {
     provider = 'LineColumn',
@@ -82,6 +67,7 @@ gls.left[7] = {
     highlight = {colors.fg,colors.bg,'bold'},
   }
 }
+
 gls.left[8] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
@@ -110,6 +96,8 @@ gls.left[11] = {
     highlight = {colors.blue,colors.bg},
   }
 }
+
+--[[
 gls.left[12] = {
   ShowLspClient = {
     provider = 'GetLspClient',
@@ -125,6 +113,25 @@ gls.left[12] = {
   }
 }
 
+]]--
+local lsp_status = require('lsp-status')
+
+lsp_status.config({
+    diagnostics = false
+})
+
+lsp_status.register_progress()
+
+gls.left[12]= {
+    LspStatusA = {
+    provider = lsp_status.status,
+
+    condition = condition.hide_in_width,
+    separator = ' ',
+    separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.blue, colors.bg, 'bold'}
+    }
+}
 
 gls.right[1] = {
   FileEncode = {

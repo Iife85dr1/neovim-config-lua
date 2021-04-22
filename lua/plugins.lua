@@ -60,6 +60,8 @@ return require('packer').startup(function()
     use 'yuttie/comfortable-motion.vim'
     -- use 'liuchengxu/vim-which-key'
     -- use 'puremourning/vimspector'
+    -- powershell
+    use 'pprovost/vim-ps1'
 
 end)
 

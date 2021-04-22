@@ -9,3 +9,4 @@ lsp_status.config {
   indicator_warnings = 'W',
   indicator_info = 'I',
   indicator_hint = 'H',
+}
