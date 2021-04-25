@@ -4,6 +4,7 @@ function! MyHighlights() abort
     highlight LspDiagnosticsDefaultWarning guifg=#8c6c00
     highlight Comment guifg=#5f6d86
     highlight InlayHint guifg=#0f4675
+    highlight BP guifg=#FF0000 guibg=#232433
     lua vim.lsp.diagnostic._define_default_signs_and_highlights()
     highlight LspDiagnosticsUnderlineError gui=undercurl guibg=#701000 
 endfunction

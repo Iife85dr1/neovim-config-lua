@@ -5,15 +5,15 @@ vim.api.nvim_set_var("vimspector_terminal_minwidth", 40)
 vim.api.nvim_set_var("vimspector_terminal_maxwidth", 40)
 
 vim.fn.sign_define("vimspectorBP",
-    {text = "● ", texthl = "bp_style"})
+    {text = "● ", texthl = "BP"})
 vim.fn.sign_define("vimspectorBPCond",
-    {text = "● ", texthl = "bp_style"})
+    {text = "● ", texthl = "BP"})
 vim.fn.sign_define("vimspectorBPDisabled",
-    {text = "● ", texthl = "LineNr"})
+    {text = "● ", texthl = "SignColumn"})
 vim.fn.sign_define("vimspectorPC",
-    {text = "▶ ", texthl = "MatchParen", linehl="CursorLine"})
-vim.fn.sign_define("vimspectorPC",
-    {text = "● ", texthl = "MatchParen", linehl="CursorLine"})
+    {text = " ▶", texthl = "SignColumn", linehl="CursorLine"})
+vim.fn.sign_define("vimspectorPCBP",
+    {text = "●▶", texthl = "SignColumn", linehl="CursorLine"})
 
 vim.api.nvim_set_var("vimspector_enable_mappings", "HUMAN")
 
