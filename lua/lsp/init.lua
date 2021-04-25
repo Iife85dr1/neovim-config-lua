@@ -22,6 +22,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+vim.lsp.handlers["window/showMessage"] = function (_, _, result)
+    print(result.message)
+end
+
 vim.lsp.handlers["textDocument/signatureHelp"] = function(_, method, result, _, bufnr) 
 end
 

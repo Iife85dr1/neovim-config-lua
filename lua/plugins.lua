@@ -70,6 +70,8 @@ return require('packer').startup(function()
         "folke/lsp-trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
+
+    use 'wsdjeg/notifications.vim'
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
