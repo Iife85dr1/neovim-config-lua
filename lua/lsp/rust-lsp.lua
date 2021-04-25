@@ -46,4 +46,4 @@ end
 
 vim.cmd('autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)')
 vim.cmd('autocmd BufWritePre Cargo.toml lua rust_reload_workspace()')
-vim.cmd('autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require\'lsp_extensions\'.inlay_hints{ prefix = " > ", highlight = "Comment", enabled = {"TypeHint", "ChainingHint"}}')
+vim.cmd('autocmd BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require\'lsp_extensions\'.inlay_hints{ aligned = true, prefix = " > ", highlight = "InlayHint", enabled = {"TypeHint", "ChainingHint"}}')

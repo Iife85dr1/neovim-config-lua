@@ -18,8 +18,6 @@ return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     -- LSP
     use 'neovim/nvim-lspconfig'
-    -- LSP UI
-    use 'glepnir/lspsaga.nvim'
     -- LSP COMPLECTION ICONS
     use 'onsails/lspkind-nvim'
 
@@ -40,8 +38,6 @@ return require('packer').startup(function()
     use 'airblade/vim-rooter'
     use 'puuuuh/rust.vim'
     use 'puremourning/vimspector'
-    use 'luochen1990/rainbow'
-    use 'tjdevries/colorbuddy.vim'
 
     -- TS react
     use 'pangloss/vim-javascript'
@@ -51,6 +47,7 @@ return require('packer').startup(function()
 
     -- highlight
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} 
+    use 'p00f/nvim-ts-rainbow'
 
     -- Status line
 	--use {
@@ -68,6 +65,11 @@ return require('packer').startup(function()
     use 'nvim-lua/lsp-status.nvim'
     use 'Shougo/echodoc.vim'
     use 'puuuuh/vimspector-rust'
+
+    use {
+        "folke/lsp-trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    }
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'

@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap('n', 'q', '<cmd>lua vim.lsp.diagnostic.show_line_diagnos
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
     virtual_text = {
       spacing = 5,
       prefix = ' ⚠ ',
@@ -23,6 +24,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 vim.lsp.handlers["textDocument/signatureHelp"] = function(_, method, result, _, bufnr) 
 end
+
 
 -- vim.lsp.diagnostic.set_loclist()
 

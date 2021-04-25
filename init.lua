@@ -17,8 +17,8 @@ require('lsp.lua-lsp')
 
 -- plugs
 require('nv-lspkind')
-require('nv-lspsaga')
 require('nv-compe')
+require('nv-lsptrouble')
 require('fzf')
 
 -- require('airline')
@@ -28,13 +28,8 @@ require('lsp_status')
 require('galaxyline')
 -- other
 require('vimspector')
-require('rainbow')
 
 -- lang-specific
 require('langs.rust')
 
-require('nvim-treesitter.configs').setup {
-  indent = {
-    enable = true
-  }
-}
+require('nv-treesitter')
