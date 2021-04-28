@@ -21,6 +21,7 @@ require'compe'.setup {
     nvim_lua = true;
     spell = true;
     my_lsp = true;
+    cargo = true;
   };
 }
 
@@ -80,12 +81,16 @@ local source_ids = {}
 
 local compe = require'compe'
 local Source = require'nv-compe.source'
+local Cargo = require'nv-compe.cargo'
 
 vim.api.nvim_exec([[
 augroup compe_nvim_lsp
 autocmd InsertEnter * lua require"nv-compe".register()
 augroup END
 ]], false)
+
+Cargo:load()
+compe.register_source('cargo', Cargo)
 
 return {
     register = function()

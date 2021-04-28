@@ -29,7 +29,7 @@ end
 vim.lsp.handlers["textDocument/signatureHelp"] = function(_, method, result, _, bufnr) 
 end
 
-
+vim.lsp.set_log_level("TRACE")
 -- vim.lsp.diagnostic.set_loclist()
 
 

@@ -4,6 +4,7 @@ require('plugins')
 require('theme')
 require('settings')
 
+vim.g.rooter_targets = "*.sln,Cargo.toml,.git"
 
 -- lsp
 require('lsp')
@@ -13,9 +14,10 @@ require('lsp.clangd-lsp')
 require('lsp.golang-lsp')
 require('lsp.react')
 require('lsp.lua-lsp')
+require('lsp.csharp')
 
 
--- plugs
+-- plugssad
 require('nv-lspkind')
 require('nv-compe')
 require('nv-lsptrouble')
@@ -33,3 +35,4 @@ require('vimspector')
 require('langs.rust')
 
 require('nv-treesitter')
+

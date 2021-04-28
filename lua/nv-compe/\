@@ -1,0 +1,202 @@
+local compe = require'compe'
+
+local type_field = "_________type"
+
+local Cargo = {
+    index = {}
+}
+
+function tprint (tbl, indent)
+  if not indent then indent = 0 end
+  local toprint = string.rep(" ", indent) .. "{\r\n"
+  indent = indent + 2 
+  for k, v in pairs(tbl) do
+    toprint = toprint .. string.rep(" ", indent)
+    if (type(k) == "number") then
+      toprint = toprint .. "[" .. k .. "] = "
+    elseif (type(k) == "string") then
+      toprint = toprint  .. k ..  "= "   
+    end
+    if (type(v) == "number") then
+      toprint = toprint .. v .. ",\r\n"
+    elseif (type(v) == "string") then
+      toprint = toprint .. "\"" .. v .. "\",\r\n"
+    elseif (type(v) == "table") then
+      toprint = toprint .. tprint(v, indent + 2) .. ",\r\n"
+    else
+      toprint = toprint .. "\"" .. tostring(v) .. "\",\r\n"
+    end
+  end
+  toprint = toprint .. string.rep(" ", indent-2) .. "}"
+  return toprint
+end
+
+Cargo.update = function(self)
+    local count = 0
+
+    local function get_items(path)
+        local current_items = {}
+        local subdirs = {}
+        local fs, e = vim.loop.fs_scandir(path)
+        if e then
+            return
+        end
+        while true do
+            local name, type, e = vim.loop.fs_scandir_next(fs)
+            if e then
+                break
+            end
+            if not name then
+                break
+            end
+
+            if type == 'directory' then
+                table.insert(subdirs, name)
+            else
+                count = count + 1
+                table.insert(current_items, {
+                    path = path .. name,
+                    word = name .. " = \"",
+                    abbr = name,
+                })
+            end
+        end
+
+        for i=1, #subdirs do
+            current_items[subdirs[i]] = get_items(path .. subdirs[i] .. '/')
+        end
+        return current_items
+    end
+
+    self.index = get_items("/home/puh/git/crates.io-index/")
+    print("Indexed ", count, "crates")
+    -- print(tprint(self.index))
+end
+
+--- get_metadata
+Cargo.get_metadata = function(_)
+    return {
+        sort = false,
+        priority = 10000,
+        menu = '[CRG]';
+        dup = 1,
+    }
+end
+
+--- determine
+Cargo.determine = function(_, context)
+    return compe.helper.determine(context, {
+        keyword_pattern = [[^\w\w\w\w\w*]],
+    })
+end
+
+--- complete
+Cargo.complete = function(self, args)
+    local dirname = self:_dirname(args.context)
+    if not dirname then
+        return args.abort()
+    end
+
+    self:_candidates(args.input:sub(1, 1) == '.', dirname, function(err, candidates)
+        if err then
+            return args.abort()
+        end
+        table.sort(candidates, function(item1, item2)
+            return self:_compare(item1, item2)
+        end)
+
+        args.callback({
+            items = candidates,
+        })
+    end)
+end
+
+--- _dirname
+Cargo._dirname = function(self, context)
+    return context.before_line
+end
+
+Cargo._stat = function(_, path)
+    local stat = vim.loop.fs_stat(path)
+    if stat then
+        return stat
+    end
+    return nil
+end
+
+Cargo._candidates = function(self, include_hidden, dirname, callback)
+    local current = self.index
+    local chunksize = 2
+    for i=1, #dirname, chunksize do
+        local cur_prefix = dirname:sub(i,i+chunksize - 1)
+
+        local current_node = current[cur_prefix]
+        if not current_node then
+            break
+        end
+        print(#current_node)
+        current = current_node
+    end
+
+    local items = {}
+
+    local function get_items(node)
+        print(#node)
+        for k, v in pairs(node) do
+            print(k)
+            if #k == 2 then
+                get_items(v)
+            else
+                table.insert(items, v)
+            end
+        end
+    end
+
+    get_items(current)
+
+    callback(nil, items)
+end
+
+Cargo.documentation = function(self, args)
+    local f = io.open(args.completed_item.path)
+    local ver = ""
+    while true do
+        local new_ver = f:read("*l")
+        if not new_ver then
+            break
+        end
+        ver = new_ver
+    end
+    f:close()
+    local res = vim.api.nvim_call_function('json_decode', {ver})
+    return args.callback({res.vers})
+end
+
+
+function Cargo._create_document(self, filetype, completion_item)
+  local document = {}
+    table.insert(document, "example")
+  return document
+end
+
+--- _compare
+Cargo._compare = function(self, item1, item2)
+    return item1.word < item2.word
+end
+
+--- _is_dir_item
+Cargo._is_dir_item = function(_, item)
+    return item.menu == MENU.DIR or item.menu == MENU.DIR_LINK
+end
+
+--- _is_slash_comment
+Cargo._is_slash_comment = function(_)
+    local commentstring = vim.bo.commentstring or ''
+    local no_filetype = vim.bo.filetype == ''
+    local is_slash_comment = false
+    is_slash_comment = is_slash_comment or commentstring:match('/%*')
+    is_slash_comment = is_slash_comment or commentstring:match('//')
+    return is_slash_comment and not no_filetype
+end
+
+return Cargo
