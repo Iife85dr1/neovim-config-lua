@@ -32,8 +32,9 @@ return require('packer').startup(function()
     use 'honza/vim-snippets'
 
     -- Other
-    use 'ghifarit53/tokyonight-vim'
-    use 'airblade/vim-rooter'
+    -- use 'ghifarit53/tokyonight-vim'
+	use 'folke/tokyonight.nvim'
+    -- use 'airblade/vim-rooter'
 	use 'luochen1990/rainbow'
     -- use 'jackguo380/vim-lsp-cxx-highlight'
 
@@ -42,6 +43,7 @@ return require('packer').startup(function()
 
     -- Session manager
     use 'rmagatti/auto-session'
+	use 'puuuuh/compe-crates'
 
 	use {
 	   'glepnir/galaxyline.nvim',

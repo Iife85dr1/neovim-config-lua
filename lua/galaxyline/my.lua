@@ -127,8 +127,8 @@ gls.left[12]= {
     provider = lsp_status.status,
 
     condition = condition.hide_in_width,
-    separator = ' ',
-    separator_highlight = {'NONE',colors.bg},
+    -- separator = '|',
+    -- separator_highlight = {'NONE',colors.bg},
     highlight = {colors.blue, colors.bg, 'bold'}
     }
 }

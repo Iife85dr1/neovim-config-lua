@@ -14,6 +14,7 @@ require'compe'.setup {
   max_menu_width = 100;
   documentation = true;
 
+
   source = {
     path = true;
     buffer = true;
@@ -25,6 +26,8 @@ require'compe'.setup {
     tags = false;
     snippets_nvim = false;
     treesitter = true;
+	-- RUST
+	crates = true;
   };
 }
 
