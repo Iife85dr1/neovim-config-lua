@@ -72,6 +72,7 @@ return require('packer').startup(function()
     }
 
     use 'wsdjeg/notifications.vim'
+    use 'puuuuh/compe-crates'
 	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'

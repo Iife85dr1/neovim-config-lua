@@ -40,13 +40,12 @@ function run_tests()
     )
 end
 
-function open_cargo() 
+function open_cargo()
     local uri = vim.uri_from_bufnr(0)
     vim.lsp.buf_request(0, 'experimental/openCargoToml', { textDocument = { uri = uri } },
         function (err, _, result, _)
             if err then error(tostring(err)) end
             api.nvim_command('e '..vim.uri_to_fname(result.uri))
-            print(result.uri)
         end
     )
 end
