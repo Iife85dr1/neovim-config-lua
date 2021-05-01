@@ -18,5 +18,6 @@ require('lsp.powershell-lsp')
 require('nv-lspkind')
 require('nv-lspsaga')
 require('nv-compe')
+require('nv-treesitter')
 
 require('barbar')

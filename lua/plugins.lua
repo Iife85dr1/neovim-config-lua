@@ -25,6 +25,10 @@ return require('packer').startup(function()
     -- LSP COMPLECTION ICONS
     use 'onsails/lspkind-nvim'
 
+	-- treesitter
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} 
+	use 'p00f/nvim-ts-rainbow'
+
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
@@ -35,7 +39,6 @@ return require('packer').startup(function()
     -- use 'ghifarit53/tokyonight-vim'
 	use 'folke/tokyonight.nvim'
     -- use 'airblade/vim-rooter'
-	use 'luochen1990/rainbow'
     -- use 'jackguo380/vim-lsp-cxx-highlight'
 
 	-- Tabline
