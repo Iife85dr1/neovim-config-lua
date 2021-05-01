@@ -57,9 +57,7 @@ return require('packer').startup(function()
 	use {
 	   'glepnir/galaxyline.nvim',
 		branch = 'main',
-		-- your statusline
 		config = function() require'galaxyline/my' end,
-    -- some optional icons
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use 'nvim-lua/lsp-status.nvim'
@@ -71,9 +69,7 @@ return require('packer').startup(function()
         requires = "kyazdani42/nvim-web-devicons",
     }
 
-    use 'wsdjeg/notifications.vim'
     use 'puuuuh/compe-crates'
-	
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
     -- use 'liuchengxu/vim-which-key'

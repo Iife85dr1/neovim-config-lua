@@ -6,7 +6,7 @@ vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleDocumentToggle<cr>",
   {silent = true, noremap = true}
 )
 
-vim.api.nvim_set_keymap("n", "<leader>xz", "<cmd>LspTroubleToggle<cr>",
+vim.api.nvim_set_keymap("n", "<leader>xz", "<cmd>LspTroubleWorkspaceToggle<cr>",
   {silent = true, noremap = true}
 )
 

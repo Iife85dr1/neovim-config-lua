@@ -7,6 +7,14 @@ require'lspconfig'.rust_analyzer.setup {
     on_attach=lsp_status.on_attach,
     settings = {
       ["rust-analyzer"] = {
+          ["completion"] = {
+              ["autoimport"] = {
+                  ["enabled"] = true
+              }
+          }, 
+          ["checkOnSave"] = {
+              ["command"] = "clippy"
+          },
           ["cargo-watch"] = {
               ["enable"] = true
           },
