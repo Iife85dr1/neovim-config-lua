@@ -3,13 +3,13 @@ require('nvim-treesitter.configs').setup {
         enable = true,
     },
     indent = {
-        enable = true
+        enable = false
     },
     indent = {
-        enable = true
+        enable = false
     },
     rainbow = {
         enable = true,
-        extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+        extended_mode = false, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
     }
 }
