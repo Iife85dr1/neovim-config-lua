@@ -39,7 +39,7 @@ vim.g.netrw_fastbrowse=0
 
 vim.cmd('noremap <silent> <S-t> :Explore <CR>')
 vim.cmd('set signcolumn=yes')
-vim.cmd('set autochdir')
+-- vim.cmd('set autochdir')
 
 vim.cmd('nmap <TAB> :b# <CR>')
 vim.cmd('xmap <TAB> :b# <CR>')
