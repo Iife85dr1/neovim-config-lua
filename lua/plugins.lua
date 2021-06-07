@@ -20,6 +20,7 @@ return require('packer').startup(function()
 
     -- LSP
     use 'neovim/nvim-lspconfig'
+    use 'nvim-lua/lsp_extensions.nvim'
     -- LSP UI
     use 'glepnir/lspsaga.nvim'
     -- LSP COMPLECTION ICONS
@@ -38,15 +39,14 @@ return require('packer').startup(function()
     -- Other
     -- use 'ghifarit53/tokyonight-vim'
 	use 'folke/tokyonight.nvim'
-    -- use 'airblade/vim-rooter'
-    -- use 'jackguo380/vim-lsp-cxx-highlight'
+	use 'ayu-theme/ayu-vim'
 
 	-- Tabline
 	use 'romgrk/barbar.nvim'
 
     -- Session manager
-    use 'rmagatti/auto-session'
-	use 'puuuuh/compe-crates'
+    -- use 'rmagatti/auto-session'
+	-- use 'puuuuh/compe-crates'
 
 	use {
 	   'glepnir/galaxyline.nvim',
