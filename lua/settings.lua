@@ -20,7 +20,7 @@ vim.o.hidden=true
 vim.o.synmaxcol=0
 
 -- tmux
-vim.o.t_Co='256'
+-- vim.o.t_Co='256'
 vim.o.bomb=true
 vim.o.binary=true
 vim.cmd('set backspace=indent,eol,start')
