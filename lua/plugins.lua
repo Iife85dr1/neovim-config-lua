@@ -18,6 +18,9 @@ return require('packer').startup(function()
 	-- packet
 	use {'wbthomason/packer.nvim', opt = true}
 
+	-- debugger
+	use { 'puremourning/vimspector' }
+
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/lsp_extensions.nvim'
@@ -39,7 +42,8 @@ return require('packer').startup(function()
     -- Other
     -- use 'ghifarit53/tokyonight-vim'
 	use 'folke/tokyonight.nvim'
-	use 'ayu-theme/ayu-vim'
+    use 'shaunsingh/nord.nvim'
+
 
 	-- Tabline
 	use 'romgrk/barbar.nvim'

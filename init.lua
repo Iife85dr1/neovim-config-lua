@@ -2,6 +2,7 @@
 require('plugins')
 require('theme')
 require('settings')
+require('vimspector')
 
 -- lsp
 require('lsp')
