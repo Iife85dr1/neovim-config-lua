@@ -37,15 +37,20 @@ vim.g.netrw_liststyle=3
 vim.g.netrw_fastbrowse=0
 
 
-vim.cmd('noremap <silent> <S-t> :Explore <CR>')
-vim.cmd('set signcolumn=yes')
--- vim.cmd('set autochdir')
+-- vim.cmd('noremap <silent> <S-t> :Explore <CR>')
+vim.cmd('noremap <silent> <S-t> <cmd>lua require(\'telescope.builtin\').file_browser() <CR>')
 
-vim.cmd('nmap <TAB> :b# <CR>')
-vim.cmd('xmap <TAB> :b# <CR>')
+vim.cmd('nnoremap <leader>ff <cmd>lua require(\'telescope.builtin\').find_files() <CR>')
+vim.cmd('nnoremap <leader>fg <cmd>lua require(\'telescope.builtin\').live_grep() <CR>')
+
+vim.cmd('nmap <TAB> <cmd>lua require(\'telescope.builtin\').buffers() <CR>')
+vim.cmd('xmap <TAB> <cmd>lua require(\'telescope.builtin\').buffers() <CR>')
 
 vim.cmd('noremap . :BufferNext <CR>')
 vim.cmd('noremap , :BufferPrevious <CR>')
+
+vim.cmd('set signcolumn=yes')
+-- vim.cmd('set autochdir')
 
 
 -- Restart lsp

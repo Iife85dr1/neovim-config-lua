@@ -21,4 +21,4 @@ require('nv-lspsaga')
 require('nv-compe')
 require('nv-treesitter')
 
-require('barbar')
+-- require('barbar')

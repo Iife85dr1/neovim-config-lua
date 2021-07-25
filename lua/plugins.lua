@@ -46,11 +46,15 @@ return require('packer').startup(function()
 
 
 	-- Tabline
-	use 'romgrk/barbar.nvim'
+	-- use 'romgrk/barbar.nvim'
 
     -- Session manager
     -- use 'rmagatti/auto-session'
 	-- use 'puuuuh/compe-crates'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+	}
 
 	use {
 	   'glepnir/galaxyline.nvim',

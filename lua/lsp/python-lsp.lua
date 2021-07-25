@@ -1,8 +1,5 @@
-local cap = require("lsp-configs")
+-- local cap = require("lsp-configs")
 
-require'lspconfig'.pyls.setup{
-    capabilities = cap.get_cap(),
-}
-
-
-
+-- require'lspconfig'.pyls.setup{
+--     capabilities = cap.get_cap(),
+-- }
