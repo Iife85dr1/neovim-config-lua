@@ -4,7 +4,7 @@ require('plugins')
 require('theme')
 require('settings')
 
-vim.g.rooter_targets = "*.sln,Cargo.toml,.git"
+vim.g.rooter_patterns = {"*.sln","Cargo.toml",".git"}
 
 -- lsp
 require('lsp')
@@ -16,6 +16,12 @@ require('lsp.react')
 require('lsp.lua-lsp')
 require('lsp.csharp')
 
+-- dap
+require('nv-dap')
+require('nv-dap.ui')
+require('nv-dap.rust')
+-- require('vimspector')
+
 
 -- plugssad
 require('nv-lspkind')
@@ -23,16 +29,16 @@ require('nv-compe')
 require('nv-lsptrouble')
 require('fzf')
 
+
+require('uml')
+
 -- require('airline')
 require('lsp_status')
 
 -- status bar
 require('galaxyline')
--- other
-require('vimspector')
 
 -- lang-specific
 require('langs.rust')
 
 require('nv-treesitter')
-

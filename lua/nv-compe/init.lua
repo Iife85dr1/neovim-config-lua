@@ -19,9 +19,10 @@ require'compe'.setup {
     calc = true;
     vsnip = true;
     nvim_lua = true;
-    spell = true;
+    spell = false;
     my_lsp = true;
     crates = true;
+    treesitter = false;
   };
 }
 
@@ -74,32 +75,3 @@ vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')")
 vim.cmd("inoremap <silent><expr> <C-e>     compe#close('<C-e>')")
 vim.cmd("inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })")
 vim.cmd("inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })")
-
-
--- Forked compe source initialization
-local source_ids = {}
-
-local compe = require'compe'
-local Source = require'nv-compe.source'
-
-vim.api.nvim_exec([[
-augroup compe_nvim_lsp
-autocmd InsertEnter * lua require"nv-compe".register()
-augroup END
-]], false)
-
-return {
-    register = function()
-        -- unregister
-        for _, source_id in ipairs(source_ids) do
-            compe.unregister_source(source_id)
-        end
-        source_ids = {}
-
-        -- register
-        local filetype = vim.bo.filetype
-        for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-            table.insert(source_ids, compe.register_source('my_lsp', Source.new(client, filetype)))
-        end
-    end;
-}

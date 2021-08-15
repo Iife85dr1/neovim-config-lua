@@ -12,6 +12,9 @@ require'lspconfig'.rust_analyzer.setup {
                   ["enabled"] = true
               }
           }, 
+          ["experimental"] = {
+              ["procAttrMacros"] = true
+          },
           ["checkOnSave"] = {
               ["command"] = "clippy"
           },

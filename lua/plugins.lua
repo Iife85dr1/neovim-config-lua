@@ -8,8 +8,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-
-
 vim.cmd [[packadd packer.nvim]]
 
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
@@ -18,15 +16,13 @@ return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     -- LSP
     use 'neovim/nvim-lspconfig'
-    -- LSP COMPLECTION ICONS
     use 'onsails/lspkind-nvim'
-
     use 'nvim-lua/lsp_extensions.nvim'
 
     -- Autocomplete
-    use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
+    use 'hrsh7th/nvim-compe'
     use 'honza/vim-snippets'
 
 	--fzf
@@ -34,10 +30,13 @@ return require('packer').startup(function()
 	use {'junegunn/fzf.vim'}
 
     -- Other
-    use 'ghifarit53/tokyonight-vim'
+    use 'folke/tokyonight.nvim'
+ 
     use 'airblade/vim-rooter'
     use 'puuuuh/rust.vim'
     use 'puremourning/vimspector'
+    use 'mfussenegger/nvim-dap'
+    use { "puuuuh/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
     -- TS react
     use 'pangloss/vim-javascript'
@@ -49,11 +48,6 @@ return require('packer').startup(function()
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} 
     use 'p00f/nvim-ts-rainbow'
 
-    -- Status line
-	--use {
-	--	'hoob3rt/lualine.nvim',
-	--	requires = {'kyazdani42/nvim-web-devicons', opt = true},
-	---}
 	use {
 	   'glepnir/galaxyline.nvim',
 		branch = 'main',
@@ -69,7 +63,20 @@ return require('packer').startup(function()
         requires = "kyazdani42/nvim-web-devicons",
     }
 
-    use 'puuuuh/compe-crates'
+    use 'mboughaba/i3config.vim'
+
+    use 'weirongxu/plantuml-previewer.vim'
+
+    use 'tyru/open-browser.vim'
+
+    use 'aklt/plantuml-syntax'
+
+    use 'fatih/vim-go'
+
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-telescope/telescope.nvim'
+    use 'simrat39/rust-tools.nvim'
+    use 'nvim-lua/popup.nvim'
 	-- brackets
 	-- use 'windwp/nvim-autopairs'
     -- use 'liuchengxu/vim-which-key'
