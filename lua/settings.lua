@@ -114,3 +114,4 @@ vim.api.nvim_set_keymap('', '<kUp>', ':wincmd k<CR>', {})
 vim.api.nvim_set_keymap('', '<kDown>', ':wincmd j<CR>', {})
 
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<c-^>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'F', ':RustFmt<CR>:w<CR>', { noremap = true })

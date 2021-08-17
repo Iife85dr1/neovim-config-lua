@@ -1,6 +1,7 @@
 local dap = require('dap')
 local uv = vim.loop
 
+dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
 dap.adapters.CodeLLDB = function(callback)
     local stdout = nil
     local stderr = nil
@@ -65,6 +66,31 @@ dap.configurations.rust = {
     },
 }
 
-require('rust-tools').setup({})
+local opts = {
+    tools = { -- rust-tools options
+        -- Automatically set inlay hints (type hints)
+        autoSetHints = false,
 
+        -- Whether to show hover actions inside the hover window
+        -- This overrides the default hover handler 
+        hover_with_actions = false,
+
+        runnables = {
+            -- whether to use telescope for selection menu or not
+            use_telescope = true
+
+            -- rest of the opts are forwarded to telescope
+        },
+
+        debuggables = {
+            -- whether to use telescope for selection menu or not
+            use_telescope = true
+
+            -- rest of the opts are forwarded to telescope
+        },
+    }
+}
+require('rust-tools').setup(opts)
+
+-- Dirty hack to use codelldb instead of lldb
 dap.adapters.rt_lldb = dap.adapters.CodeLLDB

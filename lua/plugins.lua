@@ -24,6 +24,8 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip-integ'
     use 'hrsh7th/nvim-compe'
     use 'honza/vim-snippets'
+    use 'honza/vim-snippets'
+    use 'puuuuh/compe-crates'
 
 	--fzf
 	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
@@ -36,7 +38,7 @@ return require('packer').startup(function()
     use 'puuuuh/rust.vim'
     use 'puremourning/vimspector'
     use 'mfussenegger/nvim-dap'
-    use { "puuuuh/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
     -- TS react
     use 'pangloss/vim-javascript'
