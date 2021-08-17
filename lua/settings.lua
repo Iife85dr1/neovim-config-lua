@@ -46,8 +46,8 @@ vim.cmd('nnoremap <leader>fg <cmd>lua require(\'telescope.builtin\').live_grep()
 vim.cmd('nmap <TAB> <cmd>lua require(\'telescope.builtin\').buffers() <CR>')
 vim.cmd('xmap <TAB> <cmd>lua require(\'telescope.builtin\').buffers() <CR>')
 
-vim.cmd('noremap . :BufferNext <CR>')
-vim.cmd('noremap , :BufferPrevious <CR>')
+vim.cmd('noremap . :b# <CR>')
+vim.cmd('noremap , :Telescope <CR>')
 
 vim.cmd('set signcolumn=yes')
 -- vim.cmd('set autochdir')
