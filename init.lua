@@ -3,6 +3,7 @@ require('plugins')
 require('theme')
 require('settings')
 require('vimspector')
+-- require('dap')
 
 -- lsp
 require('lsp')

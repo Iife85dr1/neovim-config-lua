@@ -20,6 +20,7 @@ return require('packer').startup(function()
 
 	-- debugger
 	use { 'puremourning/vimspector' }
+    -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
     -- LSP
     use 'neovim/nvim-lspconfig'

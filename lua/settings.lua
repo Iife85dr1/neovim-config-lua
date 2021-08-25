@@ -52,6 +52,8 @@ vim.cmd('noremap , :Telescope <CR>')
 vim.cmd('set signcolumn=yes')
 -- vim.cmd('set autochdir')
 
+vim.cmd("let g:vimspector_enable_mappings = 'HUMAN'")
+
 
 -- Restart lsp
 vim.api.nvim_exec([[
